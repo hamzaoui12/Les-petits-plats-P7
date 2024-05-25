@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <title>Les Petits Plats</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/Style.css" />
     <link rel="stylesheet" href="css/header.css" />
-
-
+    <link rel="stylesheet" href="css/filter.css"/>
   </head>
   <body>
     <header>
@@ -55,16 +55,177 @@
                 />
               </svg>
               <div class="search-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29"
-                    fill="none">
-                    <circle cx="10" cy="10.4219" r="9.5" stroke="white" />
-                    <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="white" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="29"
+                  viewBox="0 0 28 29"
+                  fill="none"
+                >
+                  <circle cx="10" cy="10.4219" r="9.5" stroke="white" />
+                  <line
+                    x1="18.3536"
+                    y1="19.0683"
+                    x2="27.3536"
+                    y2="28.0683"
+                    stroke="white"
+                  />
                 </svg>
-            </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </header>
+    <section class="filter-container">
+      <div class="filters">
+        <div class="filter1">
+          <div class="f1-visiblepart">
+            <h1>Ingrédients</h1>
+            <svg
+              id="filterArrow1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="8"
+              viewBox="0 0 15 8"
+              fill="none"
+            >
+              <path
+                d="M1 1L7.5 7L14 1"
+                stroke="#1B1B1B"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="f1-inputcontainer">
+            <input type="text" class="f1-input" tabindex="-1" id="f1-input" />
+            <svg
+              class="glass-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+            >
+              <circle
+                cx="5"
+                cy="5"
+                r="4.75"
+                stroke="#7A7A7A"
+                stroke-width="0.5"
+              />
+              <line
+                x1="9.17678"
+                y1="9.32322"
+                x2="13.6768"
+                y2="13.8232"
+                stroke="#7A7A7A"
+                stroke-width="0.5"
+              />
+            </svg>
+          </div>
+          <div class="f1-list" id="f1-list"></div>
+        </div>
+        <div class="filter2">
+          <div class="f2-visiblepart">
+            <h1>Appareils</h1>
+            <svg
+              id="filterArrow2"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="8"
+              viewBox="0 0 15 8"
+              fill="none"
+            >
+              <path
+                d="M1 1L7.5 7L14 1"
+                stroke="#1B1B1B"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="f2-inputcontainer">
+            <input type="text" class="f2-input" tabindex="-1" id="f2-input" />
+            <svg
+              class="glass-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+            >
+              <circle
+                cx="5"
+                cy="5"
+                r="4.75"
+                stroke="#7A7A7A"
+                stroke-width="0.5"
+              />
+              <line
+                x1="9.17678"
+                y1="9.32322"
+                x2="13.6768"
+                y2="13.8232"
+                stroke="#7A7A7A"
+                stroke-width="0.5"
+              />
+            </svg>
+          </div>
+          <div class="f2-list" id="f2-list"></div>
+        </div>
+        <div class="filter3">
+          <div class="f3-visiblepart">
+            <h1>Ustensiles</h1>
+            <svg
+              id="filterArrow3"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="8"
+              viewBox="0 0 15 8"
+              fill="none"
+            >
+              <path
+                d="M1 1L7.5 7L14 1"
+                stroke="#1B1B1B"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="f3-inputcontainer">
+            <input type="text" class="f3-input" tabindex="-1" id="f3-input" />
+            <svg
+              class="glass-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+            >
+              <circle
+                cx="5"
+                cy="5"
+                r="4.75"
+                stroke="#7A7A7A"
+                stroke-width="0.5"
+              />
+              <line
+                x1="9.17678"
+                y1="9.32322"
+                x2="13.6768"
+                y2="13.8232"
+                stroke="#7A7A7A"
+                stroke-width="0.5"
+              />
+            </svg>
+          </div>
+          <div class="f3-list" id="f3-list"></div>
+        </div>
+      </div>
+      <div class="number-container">
+        <h1 id="number-recipes"></h1>
+      </div>
+    </section>
+    <script src="js/filter.js"></script>
+    <script src="js/Data/recipes.js"></script>
   </body>
 </html>

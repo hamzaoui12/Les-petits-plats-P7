@@ -1,0 +1,168 @@
+.filter-container {
+    width: 100%;
+    height: 108px;
+    background: #EDEDED;
+    padding-top: 20px;
+    padding-left: clamp(7px, calc(3.5vw + 2px), 102px);
+}
+
+.filters {
+    display: flex;
+    column-gap: clamp(15px, 4.5vw + 5px, 65px);
+    position: relative;
+    margin-top: 18%;
+}
+
+.filter1,
+.filter2,
+.filter3 {
+    width: 195px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: #FFF;
+    z-index: 10;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    height: 56px;
+    overflow-y: hidden;
+    transition: height 0.1s linear;
+    position: relative;
+}
+
+.filter1.open,
+.filter2.open,
+.filter3.open {
+    height: 315px;
+    overflow-y: auto;
+    z-index: 10;
+    background: #FFF;
+    position: relative;
+}
+
+#filterArrow1,
+#filterArrow2,
+#filterArrow3 {
+    transition: transform 0.3s ease;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+.filter1::-webkit-scrollbar,
+.filter2::-webkit-scrollbar,
+.filter3::-webkit-scrollbar {
+    display: none;
+}
+
+.f1-visiblepart,
+.f2-visiblepart,
+.f3-visiblepart {
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 16px;
+    align-items: center;
+    gap: 63px;
+    border-radius: 11px;
+    background: #FFF;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.f1-visiblepart h1,
+.f2-visiblepart h1,
+.f3-visiblepart h1 {
+    color: #1B1B1B;
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background: #FFF;
+}
+
+.glass-icon {
+    width: 13.5px;
+    height: 14px;
+    transform: translateX(15px);
+}
+
+.f1-inputcontainer,
+.f2-inputcontainer,
+.f3-inputcontainer {
+    position: relative;
+    width: 163px;
+    height: 36px;
+    border-radius: 2px;
+    border: 1px solid #C6C6C6;
+    margin-left: 16px;
+    margin-bottom: 11px;
+    background: #FFF;
+    top: 4px;
+}
+
+.f1-inputcontainer input[type="text"],
+.f2-inputcontainer input[type="text"],
+.f3-inputcontainer input[type="text"] {
+    border: none;
+    outline: none;
+    width: 120px;
+    height: 34px;
+    color: #7A7A7A;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 8px;
+    background: #FFF;
+}
+
+#number-recipes {
+    color: #1B1B1B;
+    font-family: Anton;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    height: 32px;
+    padding-top: 17px;
+}
+
+.number-container {
+    padding-right: clamp(7px, calc(3.5vw + 2px), 102px);
+}
+
+
+@media (min-width: 1400px) {
+    .filter-container {
+        padding-left: 102px;
+    }
+
+    .number-container {
+        padding-right: 102px;
+    }
+    
+}
+
+@media (max-width: 680px) {
+    .filter-container {
+        flex-direction: column;
+        row-gap: 15px;
+        align-items: center;
+        height: 100%;
+    }
+
+    .filters {
+        flex-direction: column;
+        row-gap: 15px;
+        align-items: center;
+        margin-top:25%
+    }
+
+    .number-container {
+        padding-bottom: 30px;
+    }
+}

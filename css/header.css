@@ -1,11 +1,11 @@
 .container-header {
-  position: relative;
+  position:relative;
   height: 100%;
   background: #ededed;
 }
 
 .background-img {
-  position: absolute;
+  position:absolute;
   min-height: 377px;
   object-fit: cover;
 }
@@ -20,7 +20,7 @@
   max-height: 25.261px;
 }
 .main-heading {
-  position: relative;
+  position:relative;
   color: #ffd15b;
   text-align: center;
   font-family: fantasy;
@@ -65,11 +65,6 @@
   cursor: pointer;
 }
 
-@media (max-width: 666px) {
-  .search-icon {
-      right: 0;
-  }
-}
 
 .search-icon:hover svg circle,
 .search-icon:hover svg line {
@@ -84,8 +79,8 @@
   height: 17px;
   flex-shrink: 0;
   position: absolute;
-  right: 85px;
-  top: 30px;
+  right: 70px;
+  top: 25px;
   display: none;
 }
 
@@ -111,14 +106,22 @@
   outline: none;
 }
 
+@media (min-width: 1750px) {
+  .research-field input[type="text"] {
+    padding-left: 35px;
+  }
+}
+
+@media (max-width: 666px) {
+  .search-icon {
+      right: 0;
+  }
+}
+
 @media (min-width: 350px) {
   .research-field input[type="text"] {
     padding-left: 2vw;
   }
 }
 
-@media (min-width: 1750px) {
-  .research-field input[type="text"] {
-    padding-left: 35px;
-  }
-}
+
