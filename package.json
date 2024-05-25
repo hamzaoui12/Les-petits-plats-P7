@@ -1,0 +1,16 @@
+{
+  "name": "front-end-fisheye",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --config .eslintrc.js ."
+  },
+  "author": "Merina Hamzaoui",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/compat": "^1.0.1",
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.3.0"
+  }
+}
