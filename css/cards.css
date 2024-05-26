@@ -1,0 +1,120 @@
+.cards-container {
+    padding-top: 250px;
+    padding-left: clamp(7px, calc(3.5vw + 2px), 102px);
+    padding-right: clamp(7px, calc(3.5vw + 2px), 102px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    row-gap: clamp(7px, calc(4vw + 6px), 66px);
+    column-gap: clamp(7px, calc(3vw + 6px), 48px);
+    background: #EDEDED;
+
+}
+.card-article img {
+    object-fit: cover;
+    height: 253px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    position:relative;
+}
+.card-article {
+    border-radius: 21px;
+    background: #FFF;
+    box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+}
+.card-text {
+    width: 100%;
+    padding-left: 6.5%;
+    padding-right: 6.5%;
+    min-height: 478px;
+}
+.card-text h1 {
+    padding-top: 21px;
+    padding-bottom: 29px;
+    color: #000;
+    font-family: "Anton", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.card-text h2 {
+    color: #7A7A7A;
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.08px;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    padding-top: 30px;
+}
+.card-description {
+    color: #1B1B1B;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    overflow: hidden;
+    max-height: 70px;
+}
+.card-description:hover {
+    max-height: 100%;
+}
+
+.card-ingredients {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-bottom: 61px;
+}
+.ingredient-name {
+    color: #1B1B1B;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.ingredient-qty {
+    color: #7A7A7A;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.card-time {
+    display: inline-flex;
+    padding: 5px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border-radius: 14px;
+    background: #FFD15B;
+    position:relative;
+    top: 20px;
+    right: 22px;
+}
+
+@media (max-width: 950px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        padding-top: 150px;
+    }
+}
+
+
+@media (max-width: 465px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        padding-top: 2px;
+    }
+}
+@media (min-width: 1440px) {
+    .cards-container {
+        padding-left: 102px;
+        padding-right: 102px;
+    }
+}
