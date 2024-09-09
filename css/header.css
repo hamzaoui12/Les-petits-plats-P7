@@ -6,8 +6,9 @@
 
 .background-img {
   position:absolute;
-  min-height: 377px;
+  height: 677px;
   object-fit: cover;
+  width: 100%;
 }
 
 .logo-img {
@@ -23,10 +24,9 @@
   position:relative;
   color: #ffd15b;
   text-align: center;
-  font-family: fantasy;
-  font-size: clamp(1.7rem, 5vw, 44px);
-  font-style: normal;
-  font-weight: 400;
+  font-family: fantasy sans-serif;
+  font-size: 30px;
+  font-weight: bold;
   line-height: normal;
 }
 
@@ -79,7 +79,7 @@
   height: 17px;
   flex-shrink: 0;
   position: absolute;
-  right: 70px;
+  right: 80px;
   top: 25px;
   display: none;
 }
@@ -118,7 +118,12 @@
   }
 }
 
-@media (min-width: 350px) {
+@media (max-width: 440px) {
+  .logo-img {
+    position: relative;
+    left: 25%;
+  }
+
   .research-field input[type="text"] {
     padding-left: 2vw;
   }

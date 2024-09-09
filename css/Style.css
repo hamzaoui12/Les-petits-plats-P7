@@ -67,8 +67,9 @@ html {
 }
 
 body {
-  max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   background: #ededed;
+  margin-bottom: 40px;
 }
 

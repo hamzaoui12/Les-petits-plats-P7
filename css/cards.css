@@ -17,25 +17,29 @@
     position:relative;
 }
 .card-article {
+    position: relative;
     border-radius: 21px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .card-text {
-    width: 100%;
-    padding-left: 6.5%;
-    padding-right: 6.5%;
-    min-height: 478px;
+    display: flex;
+    flex-direction: column;
+    height: 475px;
+    padding: 20px 30px;
 }
 .card-text h1 {
-    padding-top: 21px;
-    padding-bottom: 29px;
     color: #000;
-    font-family: fantasy;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-family: fantasy sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
 }
 .card-text h2 {
     color: #7A7A7A;
@@ -46,8 +50,10 @@
     line-height: normal;
     letter-spacing: 1.08px;
     text-transform: uppercase;
-    padding-bottom: 15px;
-    padding-top: 30px;
+    margin-top: 20px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
 }
 .card-description {
     color: #1B1B1B;
@@ -57,7 +63,9 @@
     font-weight: 400;
     line-height: normal;
     overflow: hidden;
-    max-height: 70px;
+    max-height: 80px;
+    margin-top: 10px;
+    min-height: 80px;
 }
 .card-description:hover {
     max-height: 100%;
@@ -67,7 +75,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding-bottom: 61px;
+    margin-top: 20px;
+    min-height: 100px;
 }
 .ingredient-name {
     color: #1B1B1B;
@@ -82,8 +91,9 @@
     font-family: "Manrope", sans-serif;
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 200;
     line-height: normal;
+    margin-top: 5px;
 }
 .card-time {
     display: inline-flex;
@@ -93,7 +103,7 @@
     gap: 50px;
     border-radius: 14px;
     background: #FFD15B;
-    position:relative;
+    position: absolute;
     top: 20px;
     right: 22px;
 }
@@ -101,7 +111,7 @@
 @media (max-width: 950px) {
     .cards-container {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        padding-top: 150px;
+        padding-top: 350px;
     }
 }
 
