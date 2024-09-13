@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" >
     <title>Les Petits Plats</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" >
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/Style.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/filter.css"/>
-    <link rel="stylesheet" href="css/cards.css"/>
+    <link rel="stylesheet" href="css/Style.css" >
+    <link rel="stylesheet" href="css/header.css" >
+    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" href="css/cards.css">
 
   </head>
   <body>
@@ -20,17 +20,17 @@
           alt="background"
           height="667"
           width="1440"
-        />
+        >
         <img
           class="logo-img"
           src="./images/Logo.png"
           alt="logo"
           height="40"
           width="328"
-        />
+        >
         <div class="header-content">
           <div class="main-heading">
-            CHERCHEZ PARMI PLUS DE 1500 RECETTES<br />
+            CHERCHEZ PARMI PLUS DE 1500 RECETTES<br>
             DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
           </div>
           <div class="container-search">
@@ -39,7 +39,7 @@
                 id="search-input"
                 type="text"
                 placeholder="Rechercher une recette, un ingrédient, ..."
-              />
+              >
               <svg
                 id="search-close"
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,23 @@
             </svg>
           </div>
           <div class="f1-inputcontainer">
-            <input type="text" class="f1-input" tabindex="-1" id="f1-input" />
+            <input type="text" class="f1-input" tabindex="-1" >
+            <svg
+              id="ingredients-filter-close"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
+              fill="none"
+            >
+              <path
+                d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+                stroke="#7A7A7A"
+                stroke-width="2.16667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
             <svg
               class="glass-icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +142,7 @@
               />
             </svg>
           </div>
-          <div class="f1-list" id="f1-list"></div>
+          <div class="f1-list"></div>
         </div>
         <div class="filter2">
           <div class="f2-visiblepart">
@@ -147,7 +163,23 @@
             </svg>
           </div>
           <div class="f2-inputcontainer">
-            <input type="text" class="f2-input" tabindex="-1" id="f2-input" />
+            <input type="text" class="f2-input" tabindex="-1">
+            <svg
+              id="appliances-filter-close"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
+              fill="none"
+            >
+              <path
+                d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+                stroke="#7A7A7A"
+                stroke-width="2.16667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
             <svg
               class="glass-icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +205,7 @@
               />
             </svg>
           </div>
-          <div class="f2-list" id="f2-list"></div>
+          <div class="f2-list"></div>
         </div>
         <div class="filter3">
           <div class="f3-visiblepart">
@@ -194,7 +226,23 @@
             </svg>
           </div>
           <div class="f3-inputcontainer">
-            <input type="text" class="f3-input" tabindex="-1" id="f3-input" />
+            <input type="text" class="f3-input" tabindex="-1">
+            <svg
+              id="ustensils-filter-close"
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
+              fill="none"
+            >
+              <path
+                d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+                stroke="#7A7A7A"
+                stroke-width="2.16667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
             <svg
               class="glass-icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -220,13 +268,14 @@
               />
             </svg>
           </div>
-          <div class="f3-list" id="f3-list"></div>
+          <div class="f3-list"></div>
         </div>
       </div>
       <div class="number-container">
-        <h1 id="number-recipes"></h1>
+        <h1 id="number-recipes">Recette</h1>
       </div>
     </section>
+    <div class="active-filters"></div>
     <div id="cards-container" class="cards-container"></div>
     <script src="js/filter.js"></script>
     <script src="js/Data/recipes.js"></script>

@@ -1,12 +1,13 @@
 .cards-container {
-    padding-top: 250px;
+    margin-top: 60px;
     padding-left: clamp(7px, calc(3.5vw + 2px), 102px);
     padding-right: clamp(7px, calc(3.5vw + 2px), 102px);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    grid-auto-columns: 1fr;
     row-gap: clamp(7px, calc(4vw + 6px), 66px);
     column-gap: clamp(7px, calc(3vw + 6px), 48px);
-    background: #EDEDED;
+    background: #ededed;
 
 }
 .card-article img {
@@ -14,7 +15,7 @@
     height: 253px;
     width: 100%;
     border-radius: 20px 20px 0 0;
-    position:relative;
+    position: relative;
 }
 .card-article {
     position: relative;
@@ -56,7 +57,7 @@
     align-items: center;
 }
 .card-description {
-    color: #1B1B1B;
+    color: #1b1b1b;
     font-family: "Manrope", sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -79,7 +80,7 @@
     min-height: 100px;
 }
 .ingredient-name {
-    color: #1B1B1B;
+    color: #1b1b1b;
     font-family: "Manrope", sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -87,7 +88,7 @@
     line-height: normal;
 }
 .ingredient-qty {
-    color: #7A7A7A;
+    color: #7a7a7a;
     font-family: "Manrope", sans-serif;
     font-size: 14px;
     font-style: normal;

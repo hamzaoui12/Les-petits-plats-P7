@@ -18,7 +18,7 @@
     width: 195px;
     flex-shrink: 0;
     border-radius: 11px;
-    background: #FFF;
+    background: #fff;
     z-index: 10;
     overflow: hidden;
     scrollbar-width: none;
@@ -35,7 +35,7 @@
     height: 315px;
     overflow-y: auto;
     z-index: 10;
-    background: #FFF;
+    background: #fff;
     position: relative;
 }
 
@@ -64,7 +64,7 @@
     align-items: center;
     gap: 63px;
     border-radius: 11px;
-    background: #FFF;
+    background: #fff;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -73,13 +73,13 @@
 .f1-visiblepart h1,
 .f2-visiblepart h1,
 .f3-visiblepart h1 {
-    color: #1B1B1B;
+    color: #1b1b1b;
     font-family: "Manrope", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    background: #FFF;
+    background: #fff;
 }
 
 .glass-icon {
@@ -95,10 +95,10 @@
     width: 163px;
     height: 36px;
     border-radius: 2px;
-    border: 1px solid #C6C6C6;
+    border: 1px solid #c6c6c6;
     margin-left: 16px;
-    margin-bottom: 11px;
-    background: #FFF;
+    margin-bottom: 15px;
+    background: #fff;
     top: 4px;
 }
 
@@ -109,18 +109,18 @@
     outline: none;
     width: 120px;
     height: 34px;
-    color: #7A7A7A;
+    color: #7a7a7a;
     font-family: "Manrope", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     padding-left: 8px;
-    background: #FFF;
+    background: #fff;
 }
 
 #number-recipes {
-    color: #1B1B1B;
+    color: #1b1b1b;
     font-family: Anton sans-serif;
     font-size: 21px;
     font-style: normal;
@@ -133,66 +133,66 @@
 
 /* Filter List */
 .filter-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-height: 250px;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
   
-  .filter-list li {
-    padding: 5px 16px;
-  }
-  
-  .filter-list li:hover {
-    background-color: #ffd15b;
-    scale: 1.02;
-    cursor: pointer;
-  }
-  
-  .active {
-    background-color: #ffd15b;
-  }
+.filter-list li {
+  padding: 5px 16px;
+}
+
+.filter-list li:hover {
+  background-color: #ffd15b;
+  scale: 1.02;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ffd15b;
+}
 
 /* Filter Button */
 
 .active-filters {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    width: 100%;
-    padding: 0 6%;
-  }
-  
-  .active-filter {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 15px;
-    border-radius: 11px;
-    background: #ffd15b;
-  }
-  
-  .active-filter i {
-    font-size: 20px;
-  }
-  
-  .active-filter i:hover {
-    cursor: pointer;
-  }
-  
-  #ingredients-filter-close,
-  #appliances-filter-close,
-  #ustensils-filter-close {
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    display: none;
-  }
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+  padding: 0 6%;
+}
+
+.active-filter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 15px;
+  border-radius: 11px;
+  background: #ffd15b;
+}
+
+.active-filter i {
+  font-size: 20px;
+}
+
+.active-filter i:hover {
+  cursor: pointer;
+}
+
+#ingredients-filter-close,
+#appliances-filter-close,
+#ustensils-filter-close {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  display: none;
+}
   
 /* Media queries */
 

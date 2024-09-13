@@ -1,11 +1,11 @@
 .container-header {
-  position:relative;
+  position: relative;
   height: 100%;
   background: #ededed;
 }
 
 .background-img {
-  position:absolute;
+  position: absolute;
   height: 677px;
   object-fit: cover;
   width: 100%;
@@ -21,11 +21,11 @@
   max-height: 25.261px;
 }
 .main-heading {
-  position:relative;
+  position: relative;
   color: #ffd15b;
   text-align: center;
   font-family: fantasy sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   line-height: normal;
 }
@@ -86,7 +86,7 @@
 
 .research-field input {
   color: #7a7a7a;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -110,12 +110,14 @@
   .research-field input[type="text"] {
     padding-left: 35px;
   }
+
 }
 
 @media (max-width: 666px) {
   .search-icon {
       right: 0;
   }
+
 }
 
 @media (max-width: 440px) {
