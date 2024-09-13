@@ -112,7 +112,7 @@
 @media (max-width: 950px) {
     .cards-container {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        padding-top: 350px;
+        margin-top: 350px;
     }
 }
 

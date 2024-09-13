@@ -25,7 +25,7 @@
   color: #ffd15b;
   text-align: center;
   font-family: fantasy sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   line-height: normal;
 }
@@ -110,14 +110,12 @@
   .research-field input[type="text"] {
     padding-left: 35px;
   }
-
 }
 
 @media (max-width: 666px) {
   .search-icon {
       right: 0;
   }
-
 }
 
 @media (max-width: 440px) {
