@@ -44,21 +44,27 @@ searchClose.addEventListener("click", function () {
 });
 
 /* Algorithme de recherche */
-function searchRecipesWithFunctional(value, recipes) {
-  return recipes.filter(
-    (recipe) =>
+function searchRecipesWithLoops(value, recipes) {
+  const results = [];
+  for (let i = 0; i < recipes.length; i++) {
+    const recipe = recipes[i];
+    if (
       recipe.name.toLowerCase().includes(value) ||
       recipe.description.toLowerCase().includes(value) ||
       recipe.ingredients.some((ingredient) =>
         ingredient.ingredient.toLowerCase().includes(value)
       )
-  );
+    ) {
+      results.push(recipe);
+    }
+  }
+  return results;
 }
 
 searchButton.addEventListener("click", function () {
   const value = searchInput.value.toLowerCase();
 
-  const searchRecipes = searchRecipesWithFunctional(value, recipes);
+  const searchRecipes = searchRecipesWithLoops(value, recipes);
 
   recipesNumber(searchRecipes);
   showCards(searchRecipes);
