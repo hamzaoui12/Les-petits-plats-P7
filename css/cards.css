@@ -108,6 +108,22 @@
     top: 20px;
     right: 22px;
 }
+/* Message d'erreur */
+/* Message d'erreur */
+#no-results-message {
+    text-align: center;
+    font-size: 25px;
+    color: #eea006;
+    margin: 20px 150px;
+    padding: 100px;
+    border-radius: 5px;
+    border: 3px solid #FFD15B; 
+    font-weight: bold; 
+    transition: opacity 0.9s ease; 
+    background-color: rgba(238, 160, 6, 0.1);
+    font-family: fantasy sans-serif;
+}
+
 
 @media (max-width: 950px) {
     .cards-container {
