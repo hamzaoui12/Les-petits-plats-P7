@@ -28,38 +28,33 @@ const searchInput = document.querySelector("#search-input");
 const searchButton = document.querySelector(".search-icon");
 const searchClose = document.querySelector("#search-close");
 const noResultsMessage = document.getElementById("no-results-message");
-const errorMessage = document.getElementById("error-message");
 
-searchInput.addEventListener("click", function () {
+searchInput.addEventListener("input", function () {
   const value = searchInput.value.toLowerCase();
 
-  if (value.length < 3) {
-    // Affiche un message d'erreur en dessous de la barre de recherche
-    errorMessage.textContent = "Veuillez entrer au moins 3 caractères pour effectuer une recherche.";
-    errorMessage.style.display = "block"; // Montre le message d'erreur
-    return; // Arrêter ici la fonction
-  } else {
-    errorMessage.style.display = "none"; // Cache le message d'erreur si les conditions sont remplies
-  }
-
-  if (value.length >= 3) { // Vérifie si l'utilisateur a entré au moins 3 caractères
+  if (value.length >= 3) {
+    // Vérifie si l'utilisateur a entré au moins 3 caractères
     searchClose.style.display = "block";
     const searchRecipes = searchRecipesWithLoops(value, recipes);
 
     if (searchRecipes.length === 0) {
-      showNoResultsMessage(value);
-      recipesNumber([]); // Met à jour le nombre de recettes à 0
+      noResultsMessage.textContent = `Aucune recette ne contient '${searchInput.value}'. Vous pouvez chercher 'tarte aux pommes', 'poisson', etc.`;
+      noResultsMessage.style.display = "block";
+      recipesNumber([]);
+      showCards([]);
     } else {
       showCards(searchRecipes);
+      recipesNumber(searchRecipes);
       hideNoResultsMessage();
     }
   } else if (value.length === 0) {
     searchClose.style.display = "none";
-    showCards(recipes); // Réinitialise pour afficher toutes les recettes
+    showCards(recipes);
+    recipesNumber(recipes);
     hideNoResultsMessage();
   } else {
     hideNoResultsMessage();
-    showCards(recipes); // Affiche toutes les recettes si moins de 3 caractères
+    showCards(recipes);
   }
 });
 
@@ -67,10 +62,11 @@ searchInput.addEventListener("click", function () {
 searchClose.addEventListener("click", function () {
   searchInput.value = "";
   searchClose.style.display = "none";
-  showCards(recipes);   // Réafficher toutes les recettes
-  recipesNumber(recipes);  // Mettre à jour le nombre de recettes
-  hideNoResultsMessage(); // Masquer le message d'absence de résultats
+  showCards(recipes);
+  recipesNumber(recipes);
+  hideNoResultsMessage();
 });
+
 /* Algorithme de recherche */
 function searchRecipesWithLoops(value, recipes) {
   const results = [];
@@ -93,22 +89,20 @@ searchButton.addEventListener("click", function () {
   const value = searchInput.value.toLowerCase();
 
   if (value.length < 3) {
-    return; 
+    recipesNumber(recipes);
+    return;
   }
 
   const searchRecipes = searchRecipesWithLoops(value, recipes);
+  const { allIngredients, allAppliances, allUstensils } =
+    showAllFilters(searchRecipes);
+  addIngredientsFiltersDOM(allIngredients);
+  addAppliancesFiltersDOM(allAppliances);
+  addUstensilsFiltersDOM(allUstensils);
 
   recipesNumber(searchRecipes);
   showCards(searchRecipes);
   updateAdvancedFilters(searchRecipes);
-
-  // Afficher le message d'erreur avec la valeur recherchée si aucune recette n'est trouvée
-  if (searchRecipes.length === 0) {
-    noResultsMessage.textContent = `Aucune recette ne contient '${searchInput.value}'. Vous pouvez chercher 'tarte aux pommes', 'poisson', etc.`;
-    noResultsMessage.style.display = "block"; // Afficher le message
-  } else {
-    noResultsMessage.style.display = "none"; // Masquer le message si des résultats sont trouvés
-  }
 });
 
 /* Nombre de recettes */
@@ -174,8 +168,17 @@ function addIngredientsFiltersDOM(allIngredients) {
     ingredientLi.textContent =
       ingredient.charAt(0).toUpperCase() + ingredient.slice(1);
 
+    if (activeFilters.ingredients.includes(ingredient)) {
+      ingredientLi.classList.add("active");
+    }
+
     ingredientLi.addEventListener("click", function () {
-      ingredientLi.classList.toggle("active");
+      if (ingredientLi.classList.contains("active")) {
+        ingredientLi.classList.remove("active");
+      } else {
+        ingredientLi.classList.add("active");
+      }
+
       toggleFilter("ingredients", ingredient);
     });
 
@@ -194,6 +197,9 @@ function addAppliancesFiltersDOM(allAppliances) {
     const applianceLi = document.createElement("li");
     applianceLi.textContent =
       appliance.charAt(0).toUpperCase() + appliance.slice(1);
+    if (activeFilters.appliances.includes(appliance)) {
+      applianceLi.classList.add("active");
+    }
 
     applianceLi.addEventListener("click", function () {
       applianceLi.classList.toggle("active");
@@ -216,6 +222,9 @@ function addUstensilsFiltersDOM(allUstensils) {
     ustensilLi.textContent =
       ustensil.charAt(0).toUpperCase() + ustensil.slice(1);
 
+    if (activeFilters.ustensils.includes(ustensil)) {
+      ustensilLi.classList.add("active");
+    }
     ustensilLi.addEventListener("click", function () {
       ustensilLi.classList.toggle("active");
       toggleFilter("ustensils", ustensil);
@@ -285,7 +294,10 @@ function toggleFilter(type, value) {
 
 /* Fonction pour appliquer les filtres actifs */
 function applyFilters() {
-  let filteredRecipes = recipes;
+  let filteredRecipes = searchRecipesWithLoops(
+    searchInput.value.toLowerCase(),
+    recipes
+  );
 
   if (activeFilters.ingredients.length > 0) {
     filteredRecipes = filteredRecipes.filter((recipe) =>
@@ -310,6 +322,11 @@ function applyFilters() {
       )
     );
   }
+  const { allIngredients, allAppliances, allUstensils } =
+    showAllFilters(filteredRecipes);
+  addIngredientsFiltersDOM(allIngredients);
+  addAppliancesFiltersDOM(allAppliances);
+  addUstensilsFiltersDOM(allUstensils);
 
   showCards(filteredRecipes);
   recipesNumber(filteredRecipes);
@@ -410,4 +427,5 @@ document.addEventListener("DOMContentLoaded", function () {
   addIngredientsFiltersDOM(allIngredients);
   addAppliancesFiltersDOM(allAppliances);
   addUstensilsFiltersDOM(allUstensils);
+  showCards(recipes);
 });

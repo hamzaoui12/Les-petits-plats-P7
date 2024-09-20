@@ -105,12 +105,6 @@
   border: none;
   outline: none;
 }
-#error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
 
 @media (min-width: 1750px) {
   .research-field input[type="text"] {
