@@ -24,16 +24,42 @@ visiblefilter3.addEventListener("click", function () {
 });
 
 /* Recherche de recettes */
-
 const searchInput = document.querySelector("#search-input");
 const searchButton = document.querySelector(".search-icon");
 const searchClose = document.querySelector("#search-close");
+const noResultsMessage = document.getElementById("no-results-message");
+const errorMessage = document.getElementById("error-message");
 
-searchInput.addEventListener("input", function () {
-  if (searchInput.value.length > 0) {
-    searchClose.style.display = "block";
+searchInput.addEventListener("click", function () {
+  const value = searchInput.value.toLowerCase();
+
+  if (value.length < 3) {
+    // Affiche un message d'erreur en dessous de la barre de recherche
+    errorMessage.textContent = "Veuillez entrer au moins 3 caractères pour effectuer une recherche.";
+    errorMessage.style.display = "block"; // Montre le message d'erreur
+    return; // Arrêter ici la fonction
   } else {
+    errorMessage.style.display = "none"; // Cache le message d'erreur si les conditions sont remplies
+  }
+
+  if (value.length >= 3) { // Vérifie si l'utilisateur a entré au moins 3 caractères
+    searchClose.style.display = "block";
+    const searchRecipes = searchRecipesWithLoops(value, recipes);
+
+    if (searchRecipes.length === 0) {
+      showNoResultsMessage(value);
+      recipesNumber([]); // Met à jour le nombre de recettes à 0
+    } else {
+      showCards(searchRecipes);
+      hideNoResultsMessage();
+    }
+  } else if (value.length === 0) {
     searchClose.style.display = "none";
+    showCards(recipes); // Réinitialise pour afficher toutes les recettes
+    hideNoResultsMessage();
+  } else {
+    hideNoResultsMessage();
+    showCards(recipes); // Affiche toutes les recettes si moins de 3 caractères
   }
 });
 
@@ -41,8 +67,10 @@ searchInput.addEventListener("input", function () {
 searchClose.addEventListener("click", function () {
   searchInput.value = "";
   searchClose.style.display = "none";
+  showCards(recipes);   // Réafficher toutes les recettes
+  recipesNumber(recipes);  // Mettre à jour le nombre de recettes
+  hideNoResultsMessage(); // Masquer le message d'absence de résultats
 });
-
 /* Algorithme de recherche */
 function searchRecipesWithLoops(value, recipes) {
   const results = [];
@@ -64,14 +92,26 @@ function searchRecipesWithLoops(value, recipes) {
 searchButton.addEventListener("click", function () {
   const value = searchInput.value.toLowerCase();
 
+  if (value.length < 3) {
+    return; 
+  }
+
   const searchRecipes = searchRecipesWithLoops(value, recipes);
 
   recipesNumber(searchRecipes);
   showCards(searchRecipes);
+  updateAdvancedFilters(searchRecipes);
+
+  // Afficher le message d'erreur avec la valeur recherchée si aucune recette n'est trouvée
+  if (searchRecipes.length === 0) {
+    noResultsMessage.textContent = `Aucune recette ne contient '${searchInput.value}'. Vous pouvez chercher 'tarte aux pommes', 'poisson', etc.`;
+    noResultsMessage.style.display = "block"; // Afficher le message
+  } else {
+    noResultsMessage.style.display = "none"; // Masquer le message si des résultats sont trouvés
+  }
 });
 
 /* Nombre de recettes */
-
 function recipesNumber(recipes) {
   const recipesNumber = recipes.length;
   const recipesNumberText = document.querySelector("#number-recipes");
@@ -79,7 +119,6 @@ function recipesNumber(recipes) {
 }
 
 /* Filtrage de recettes */
-
 const ingredientsFilter = document.querySelector(".f1-input");
 const appliancesFilter = document.querySelector(".f2-input");
 const ustensilsFilter = document.querySelector(".f3-input");
@@ -119,7 +158,6 @@ function showAllFilters(recipes) {
 }
 
 /* Filtres actifs */
-
 const activeFilters = {
   ingredients: [],
   appliances: [],
@@ -127,7 +165,6 @@ const activeFilters = {
 };
 
 /* Ajout des choix de filtrage dans le DOM */
-
 function addIngredientsFiltersDOM(allIngredients) {
   const ingredientsList = document.createElement("ul");
   ingredientsList.classList.add("filter-list");
@@ -315,8 +352,7 @@ ustensilsFilter.addEventListener("input", function () {
   addUstensilsFiltersDOM(filteredUstensils);
 });
 
-/* Supprimer le conbtenu dans le champ de recherche */
-
+/* Supprimer le contenu dans le champ de recherche */
 const filterClose = document.querySelector("#filter-close");
 
 function setupFilterClear(inputElement, closeElement, filterFunction) {
