@@ -75,7 +75,11 @@ function searchRecipesWithFunctional(value, recipes) {
       recipe.description.toLowerCase().includes(value) ||
       recipe.ingredients.some((ingredient) =>
         ingredient.ingredient.toLowerCase().includes(value)
-      )
+      ) ||
+      recipe.ustensils.some((ustensil) =>
+        ustensil.toLowerCase().includes(value)
+      ) ||
+      recipe.appliance.toLowerCase().includes(value)
   );
 }
 
