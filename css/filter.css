@@ -148,7 +148,7 @@
 
 .filter-list li:hover {
   background-color: #ffd15b;
-  scale: 1.02;
+  transform: scale(1.02);
   cursor: pointer;
 }
 
