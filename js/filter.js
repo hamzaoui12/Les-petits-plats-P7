@@ -31,6 +31,10 @@ const noResultsMessage = document.getElementById("no-results-message");
 
 searchInput.addEventListener("input", function () {
   const value = searchInput.value.toLowerCase();
+  if (value.length < 3) {
+    recipesNumber(recipes);
+    return;
+  }
 
   if (value.length >= 3) {
     // Vérifie si l'utilisateur a entré au moins 3 caractères
