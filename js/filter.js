@@ -31,7 +31,10 @@ const noResultsMessage = document.getElementById("no-results-message");
 
 searchInput.addEventListener("input", function () {
   const value = searchInput.value.toLowerCase();
-
+  if (value.length < 3) {
+    recipesNumber(recipes);
+    return;
+  }
   if (value.length >= 3) {
     // Vérifie si l'utilisateur a entré au moins 3 caractères
     searchClose.style.display = "block";
@@ -45,17 +48,24 @@ searchInput.addEventListener("input", function () {
     } else {
       showCards(searchRecipes);
       recipesNumber(searchRecipes);
-      hideNoResultsMessage();
     }
-  } else if (value.length === 0) {
+  } else if (value.length < 3) {
     searchClose.style.display = "none";
     showCards(recipes);
     recipesNumber(recipes);
-    hideNoResultsMessage();
   } else {
-    hideNoResultsMessage();
     showCards(recipes);
   }
+  const searchRecipes = searchRecipesWithLoops(value, recipes);
+  const { allIngredients, allAppliances, allUstensils } =
+    showAllFilters(searchRecipes);
+  addIngredientsFiltersDOM(allIngredients);
+  addAppliancesFiltersDOM(allAppliances);
+  addUstensilsFiltersDOM(allUstensils);
+
+  recipesNumber(searchRecipes);
+  showCards(searchRecipes);
+  updateAdvancedFilters(searchRecipes);
 });
 
 /* Fermer la recherche */
@@ -64,7 +74,11 @@ searchClose.addEventListener("click", function () {
   searchClose.style.display = "none";
   showCards(recipes);
   recipesNumber(recipes);
-  hideNoResultsMessage();
+  const { allIngredients, allAppliances, allUstensils } =
+    showAllFilters(recipes);
+  addIngredientsFiltersDOM(allIngredients);
+  addAppliancesFiltersDOM(allAppliances);
+  addUstensilsFiltersDOM(allUstensils);
 });
 
 /* Algorithme de recherche */
@@ -88,26 +102,6 @@ function searchRecipesWithLoops(value, recipes) {
   }
   return results;
 }
-
-searchButton.addEventListener("click", function () {
-  const value = searchInput.value.toLowerCase();
-
-  if (value.length < 3) {
-    recipesNumber(recipes);
-    return;
-  }
-
-  const searchRecipes = searchRecipesWithLoops(value, recipes);
-  const { allIngredients, allAppliances, allUstensils } =
-    showAllFilters(searchRecipes);
-  addIngredientsFiltersDOM(allIngredients);
-  addAppliancesFiltersDOM(allAppliances);
-  addUstensilsFiltersDOM(allUstensils);
-
-  recipesNumber(searchRecipes);
-  showCards(searchRecipes);
-  updateAdvancedFilters(searchRecipes);
-});
 
 /* Nombre de recettes */
 function recipesNumber(recipes) {
