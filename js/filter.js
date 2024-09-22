@@ -45,17 +45,24 @@ searchInput.addEventListener("input", function () {
     } else {
       showCards(searchRecipes);
       recipesNumber(searchRecipes);
-      hideNoResultsMessage();
     }
-  } else if (value.length === 0) {
+  } else if (value.length < 3) {
     searchClose.style.display = "none";
     showCards(recipes);
     recipesNumber(recipes);
-    hideNoResultsMessage();
   } else {
-    hideNoResultsMessage();
     showCards(recipes);
   }
+  const searchRecipes = searchRecipesWithFunctional(value, recipes);
+  const { allIngredients, allAppliances, allUstensils } =
+    showAllFilters(searchRecipes);
+  addIngredientsFiltersDOM(allIngredients);
+  addAppliancesFiltersDOM(allAppliances);
+  addUstensilsFiltersDOM(allUstensils);
+
+  recipesNumber(searchRecipes);
+  showCards(searchRecipes);
+  updateAdvancedFilters(searchRecipes);
 });
 
 /* Fermer la recherche */
@@ -64,7 +71,11 @@ searchClose.addEventListener("click", function () {
   searchClose.style.display = "none";
   showCards(recipes);
   recipesNumber(recipes);
-  hideNoResultsMessage();
+  const { allIngredients, allAppliances, allUstensils } =
+    showAllFilters(recipes);
+  addIngredientsFiltersDOM(allIngredients);
+  addAppliancesFiltersDOM(allAppliances);
+  addUstensilsFiltersDOM(allUstensils);
 });
 
 /* Algorithme de recherche */
@@ -82,26 +93,6 @@ function searchRecipesWithFunctional(value, recipes) {
       recipe.appliance.toLowerCase().includes(value)
   );
 }
-
-searchButton.addEventListener("click", function () {
-  const value = searchInput.value.toLowerCase();
-
-  if (value.length < 3) {
-    recipesNumber(recipes);
-    return;
-  }
-
-  const searchRecipes = searchRecipesWithFunctional(value, recipes);
-  const { allIngredients, allAppliances, allUstensils } =
-    showAllFilters(searchRecipes);
-  addIngredientsFiltersDOM(allIngredients);
-  addAppliancesFiltersDOM(allAppliances);
-  addUstensilsFiltersDOM(allUstensils);
-
-  recipesNumber(searchRecipes);
-  showCards(searchRecipes);
-  updateAdvancedFilters(searchRecipes);
-});
 
 /* Nombre de recettes */
 function recipesNumber(recipes) {
